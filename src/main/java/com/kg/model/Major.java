@@ -16,7 +16,7 @@ public class Major {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "name")
+    @Property(name = "专业名称")
     private String name;
 
 }

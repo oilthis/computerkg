@@ -16,7 +16,7 @@ public class Teacher {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "name")
+    @Property(name = "姓名")
     private String name;
 
 }

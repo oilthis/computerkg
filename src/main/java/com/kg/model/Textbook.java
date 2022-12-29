@@ -16,7 +16,7 @@ public class Textbook {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "name")
+    @Property(name = "书名")
     private String name;
 
 }

@@ -16,7 +16,7 @@ public class KnowledgeUnit {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "name")
+    @Property(name = "知识单元名称")
     private String name;
 
 }

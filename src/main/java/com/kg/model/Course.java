@@ -16,7 +16,13 @@ public class Course {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "name")
+    @Property(name = "课程名称")
     private String name;
+    @Property(name = "课程代码")
+    private String Course_code;
+    @Property(name = "学时")
+    private String Course_hours;
+    @Property(name = "学分")
+    private Double Course_credit;
 
 }
