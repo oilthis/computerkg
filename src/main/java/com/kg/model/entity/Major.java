@@ -1,4 +1,4 @@
-package com.kg.model;
+package com.kg.model.entity;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,16 +7,17 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Property;
 import org.springframework.data.neo4j.core.schema.Node;
 
-@Node(primaryLabel = "Textbook")
+@Node(primaryLabel = "Major")
 @Data
 @Builder
-public class Textbook {
+public class Major {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Property(name = "书名")
+    @Property(name = "专业名称")
     private String name;
 
 }
+
