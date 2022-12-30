@@ -18,8 +18,8 @@ public class TextbookService {
 
     public int delAllTextbook() {
         textbookRepository.deleteAll();
-        if(textbookRepository.findAll() != null) return 0;
-        else return 1;
+        if(textbookRepository.findAll().isEmpty()) return 1;
+        else return 0;
     }
 
     public Textbook getTextbookByName(String name) {

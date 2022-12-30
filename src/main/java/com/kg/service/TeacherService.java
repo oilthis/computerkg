@@ -17,8 +17,8 @@ public class TeacherService {
 
     public int delAllTeacher() {
         teacherRepository.deleteAll();
-        if(teacherRepository.findAll() != null) return 0;
-        else return 1;
+        if(teacherRepository.findAll().isEmpty()) return 1;
+        else return 0;
     }
 
     public Teacher getTeacherByName(String name) {

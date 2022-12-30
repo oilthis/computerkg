@@ -19,8 +19,8 @@ public class CourseService {
 
     public int delAllCourse() {
         courseRepository.deleteAll();
-        if(courseRepository.findAll() != null) return 0;
-        else return 1;
+        if(courseRepository.findAll().isEmpty()) return 1;
+        else return 0;
     }
 
     public Course getCourseByName(String name) {

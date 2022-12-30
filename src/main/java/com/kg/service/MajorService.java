@@ -18,8 +18,8 @@ public class MajorService {
 
     public int delAllMajor() {
         majorRepository.deleteAll();
-        if(majorRepository.findAll() != null) return 0;
-        else return 1;
+        if(majorRepository.findAll().isEmpty()) return 1;
+        else return 0;
     }
 
     public Major getMajorByName(String name) {

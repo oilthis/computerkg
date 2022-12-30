@@ -18,8 +18,8 @@ public class KnowledgeUnitService {
 
     public int delAllKnowledgeUnit() {
         knowledgeUnitRepository.deleteAll();
-        if(knowledgeUnitRepository.findAll() != null) return 0;
-        else return 1;
+        if(knowledgeUnitRepository.findAll().isEmpty()) return 1;
+        else return 0;
     }
 
     public KnowledgeUnit getKnowledgeUnitByName(String name) {
