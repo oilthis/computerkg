@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Property;
 import org.springframework.data.neo4j.core.schema.Node;
 
-@Node(primaryLabel = "Major")
+@Node(primaryLabel = "major")
 @Data
 @Builder
 public class Major {
@@ -16,7 +16,7 @@ public class Major {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "专业名称")
+    @Property(name = "name")
     private String name;
 
 }

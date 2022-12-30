@@ -16,8 +16,10 @@ public class TextbookService {
         return textbookRepository.findAll();
     }
 
-    public void delAllTextbook() {
+    public int delAllTextbook() {
         textbookRepository.deleteAll();
+        if(textbookRepository.findAll() != null) return 0;
+        else return 1;
     }
 
     public Textbook getTextbookByName(String name) {
@@ -28,7 +30,9 @@ public class TextbookService {
         return textbookRepository.save(Textbook.builder().name(name).build());
     }
 
-    public void delTextbook(String name){
+    public int delTextbook(String name){
         textbookRepository.delete(getTextbookByName(name));
+        if(textbookRepository.findFirstByName(name) != null) return 0;
+        else return 1;
     }
 }

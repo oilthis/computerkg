@@ -17,19 +17,23 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public void delAllCourse() {
+    public int delAllCourse() {
         courseRepository.deleteAll();
+        if(courseRepository.findAll() != null) return 0;
+        else return 1;
     }
 
     public Course getCourseByName(String name) {
         return courseRepository.findFirstByName(name);
     }
 
-    public Course addCourse(String name) {
-        return courseRepository.save(Course.builder().name(name).build());
+    public Course addCourse(String name, String course_code, String course_hours, Double course_credit) {
+        return courseRepository.save(Course.builder().name(name).Course_code(course_code).Course_hours(course_hours).Course_credit(course_credit).build());
     }
 
-    public void delCourse(String name){
+    public int delCourse(String name){
         courseRepository.delete(getCourseByName(name));
+        if(courseRepository.findFirstByName(name) != null) return 0;
+        else return 1;
     }
 }

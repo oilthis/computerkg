@@ -16,8 +16,10 @@ public class KnowledgeUnitService {
         return knowledgeUnitRepository.findAll();
     }
 
-    public void delAllKnowledgeUnit() {
+    public int delAllKnowledgeUnit() {
         knowledgeUnitRepository.deleteAll();
+        if(knowledgeUnitRepository.findAll() != null) return 0;
+        else return 1;
     }
 
     public KnowledgeUnit getKnowledgeUnitByName(String name) {
@@ -28,7 +30,9 @@ public class KnowledgeUnitService {
         return knowledgeUnitRepository.save(KnowledgeUnit.builder().name(name).build());
     }
 
-    public void delKnowledgeUnit(String name){
+    public int delKnowledgeUnit(String name){
         knowledgeUnitRepository.delete(getKnowledgeUnitByName(name));
+        if(knowledgeUnitRepository.findFirstByName(name) != null) return 0;
+        else return 1;
     }
 }

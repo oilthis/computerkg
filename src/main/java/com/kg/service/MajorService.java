@@ -16,8 +16,10 @@ public class MajorService {
         return majorRepository.findAll();
     }
 
-    public void delAllMajor() {
+    public int delAllMajor() {
         majorRepository.deleteAll();
+        if(majorRepository.findAll() != null) return 0;
+        else return 1;
     }
 
     public Major getMajorByName(String name) {
@@ -28,7 +30,9 @@ public class MajorService {
         return majorRepository.save(Major.builder().name(name).build());
     }
 
-    public void delMajor(String name){
+    public int delMajor(String name){
         majorRepository.delete(getMajorByName(name));
+        if(majorRepository.findFirstByName(name) != null) return 0;
+        else return 1;
     }
 }

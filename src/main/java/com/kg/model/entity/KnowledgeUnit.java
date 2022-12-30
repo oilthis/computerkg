@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Property;
 import org.springframework.data.neo4j.core.schema.Node;
 
-@Node(primaryLabel = "KnowledgeUnit")
+@Node(primaryLabel = "knowledgeunit")
 @Data
 @Builder
 public class KnowledgeUnit {
@@ -16,7 +16,7 @@ public class KnowledgeUnit {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "知识单元名称")
+    @Property(name = "name")
     private String name;
 
 }

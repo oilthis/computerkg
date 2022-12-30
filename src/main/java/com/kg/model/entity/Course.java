@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.core.schema.*;
 
 import java.util.List;
 
-@Node(primaryLabel = "Course")
+@Node(primaryLabel = "course")
 @Data
 @Builder
 public class Course {
@@ -16,31 +16,31 @@ public class Course {
     @GeneratedValue
     private Long id;
 
-    @Property(name = "课程名称")
+    @Property(name = "name")
     private String name;
-    @Property(name = "课程代码")
+    @Property(name = "Course_code")
     private String Course_code;
-    @Property(name = "学时")
+    @Property(name = "Course_hours")
     private String Course_hours;
-    @Property(name = "学分")
+    @Property(name = "Course_credit")
     private Double Course_credit;
 
-    @Relationship(type = "Course2KnowledgeUnit", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "contain", direction = Relationship.Direction.OUTGOING)
     private List<Course2KnowledgeUnit> Course2KnowledgeUnits;
 
-    @Relationship(type = "Course2Major", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "适用专业", direction = Relationship.Direction.OUTGOING)
     private List<Course2Major> Course2Majors;
 
-    @Relationship(type = "Course2Teacher", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "teached", direction = Relationship.Direction.OUTGOING)
     private List<Course2Teacher> course2Teachers;
 
-    @Relationship(type = "Course2Textbook", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "reference", direction = Relationship.Direction.OUTGOING)
     private List<Course2Textbook> Course2Textbooks;
 
-    @Relationship(type = "CourseBeforeCourse", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "先修", direction = Relationship.Direction.OUTGOING)
     private List<CourseBeforeCourse> courseBeforeCourses;
 
-    @Relationship(type = "CourseTogetherWithCourse", direction = Relationship.Direction.OUTGOING)
+    @Relationship(type = "同修", direction = Relationship.Direction.OUTGOING)
     private List<CourseTogetherWithCourse> CourseTogetherWithCourses;
 
 }

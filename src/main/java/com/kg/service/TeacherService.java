@@ -15,8 +15,10 @@ public class TeacherService {
         return teacherRepository.findAll();
     }
 
-    public void delAllTeacher() {
+    public int delAllTeacher() {
         teacherRepository.deleteAll();
+        if(teacherRepository.findAll() != null) return 0;
+        else return 1;
     }
 
     public Teacher getTeacherByName(String name) {
@@ -27,7 +29,9 @@ public class TeacherService {
         return teacherRepository.save(Teacher.builder().name(name).build());
     }
 
-    public void delTeacher(String name){
+    public int delTeacher(String name){
         teacherRepository.delete(getTeacherByName(name));
+        if(teacherRepository.findFirstByName(name) != null) return 0;
+        else return 1;
     }
 }
