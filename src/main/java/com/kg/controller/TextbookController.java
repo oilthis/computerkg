@@ -19,7 +19,7 @@ public class TextbookController {
     @Autowired
     TextbookService textbookService;
 
-    @Value("${server.port}")
+    @Value("8080")
     private String serverPort;//添加serverPort
 
     @GetMapping("/get_all")
@@ -27,7 +27,7 @@ public class TextbookController {
         List<Textbook> result = textbookService.getAllTextbook();
         StringBuilder resultbuilder = new StringBuilder();
         for(Textbook C:result) resultbuilder.append(C);
-        log.info("*****查看全部通知结果：" + resultbuilder);
+        log.info("*****查看全部教材结果：" + resultbuilder);
 
         if (result != null) {
             return new CommonResult(200, "获取全部教材成功,serverPort: " + serverPort, result);

@@ -18,7 +18,7 @@ public class KnowledgeUnitController {
     @Autowired
     KnowledgeUnitService knowledgeUnitService;
 
-    @Value("${server.port}")
+    @Value("8080")
     private String serverPort;//添加serverPort
 
     @GetMapping("/get_all")
@@ -26,7 +26,7 @@ public class KnowledgeUnitController {
         List<KnowledgeUnit> result = knowledgeUnitService.getAllKnowledgeUnit();
         StringBuilder resultbuilder = new StringBuilder();
         for(KnowledgeUnit C:result) resultbuilder.append(C);
-        log.info("*****查看全部通知结果：" + resultbuilder);
+        log.info("*****查看全部知识单元结果：" + resultbuilder);
 
         if (result != null) {
             return new CommonResult(200, "获取全部知识单元成功,serverPort: " + serverPort, result);

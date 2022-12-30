@@ -19,7 +19,7 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
 
-    @Value("${server.port}")
+    @Value("8080")
     private String serverPort;//添加serverPort
 
     @GetMapping("/get_all")
@@ -27,7 +27,7 @@ public class TeacherController {
         List<Teacher> result = teacherService.getAllTeacher();
         StringBuilder resultbuilder = new StringBuilder();
         for(Teacher C:result) resultbuilder.append(C);
-        log.info("*****查看全部通知结果：" + resultbuilder);
+        log.info("*****查看全部教师结果：" + resultbuilder);
 
         if (result != null) {
             return new CommonResult(200, "获取全部教师成功,serverPort: " + serverPort, result);

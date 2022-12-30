@@ -18,7 +18,7 @@ public class MajorController {
     @Autowired
     MajorService majorService;
 
-    @Value("${server.port}")
+    @Value("8080")
     private String serverPort;//添加serverPort
 
     @GetMapping("/get_all")
@@ -26,7 +26,7 @@ public class MajorController {
         List<Major> result = majorService.getAllMajor();
         StringBuilder resultbuilder = new StringBuilder();
         for(Major C:result) resultbuilder.append(C);
-        log.info("*****查看全部通知结果：" + resultbuilder);
+        log.info("*****查看全部专业结果：" + resultbuilder);
 
         if (result != null) {
             return new CommonResult(200, "获取全部专业成功,serverPort: " + serverPort, result);
