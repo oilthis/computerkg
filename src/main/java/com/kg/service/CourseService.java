@@ -13,11 +13,23 @@ public class CourseService {
     @Autowired
     CourseRepository courseRepository;
 
-    public List<Course> getAllCountry() {
+    public List<Course> getAllCourse() {
         return courseRepository.findAll();
+    }
+
+    public void delAllCourse() {
+        courseRepository.deleteAll();
     }
 
     public Course getCourseByName(String name) {
         return courseRepository.findFirstByName(name);
+    }
+
+    public Course addCourse(String name) {
+        return courseRepository.save(Course.builder().name(name).build());
+    }
+
+    public void delCourse(String name){
+        courseRepository.delete(getCourseByName(name));
     }
 }
