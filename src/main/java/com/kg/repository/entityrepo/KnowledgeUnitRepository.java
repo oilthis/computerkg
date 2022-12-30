@@ -1,4 +1,4 @@
-package com.kg.repository;
+package com.kg.repository.entityrepo;
 
 import com.kg.model.entity.KnowledgeUnit;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
