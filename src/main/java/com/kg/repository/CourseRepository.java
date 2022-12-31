@@ -13,7 +13,7 @@ public interface CourseRepository extends Neo4jRepository<Course, Long> {
     Course findFirstByName(String name);
 
     @Query(value = "match p=(s:Course)-[]-() where s.name={0} return p")
-    List<PathValue> getRelationCourseByName(String name);
+    List<PathValue> getRelationByName(String name);
 
     @Query(value = "match p=(s:Course)-[r:Course2KnowledgeUnit]-() where s.name={0} return p")
     List<PathValue> getCourse2KnowledgeUnitByName(String name);

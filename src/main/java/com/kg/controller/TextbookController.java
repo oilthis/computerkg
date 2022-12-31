@@ -72,7 +72,7 @@ public class TextbookController {
         }
     }
 
-    @DeleteMapping("/del")
+    @GetMapping("/del")
     public CommonResult deleteTextbook(@RequestParam("name") String name) {
         int result = textbookService.delTextbook(name);
         log.info("*****删除结果：" + result);
@@ -81,6 +81,18 @@ public class TextbookController {
             return new CommonResult(200, "删除教材成功,serverPort: " + serverPort, result);
         } else {
             return new CommonResult(444, "删除失败,教材不存在", null);
+        }
+    }
+
+    @GetMapping("/get_rel")
+    public CommonResult getRelationshipByName(@RequestParam("name") String name) {
+        List<String> result = textbookService.getRelationshipByName(name);
+        log.info("*****查看全部知识单元结果：" + result);
+
+        if (result != null) {
+            return new CommonResult(200, "获取关系成功,serverPort: " + serverPort, result);
+        } else {
+            return new CommonResult(444, "没有可获取的关系", null);
         }
     }
 }

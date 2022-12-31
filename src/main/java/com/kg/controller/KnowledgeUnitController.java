@@ -71,7 +71,7 @@ public class KnowledgeUnitController {
         }
     }
 
-    @DeleteMapping("/del")
+    @GetMapping("/del")
     public CommonResult deleteKnowledgeUnit(@RequestParam("name") String name) {
         int result = knowledgeUnitService.delKnowledgeUnit(name);
         log.info("*****删除结果：" + result);
@@ -80,6 +80,18 @@ public class KnowledgeUnitController {
             return new CommonResult(200, "删除知识单元成功,serverPort: " + serverPort, result);
         } else {
             return new CommonResult(444, "删除失败,知识单元不存在", null);
+        }
+    }
+
+    @GetMapping("/get_rel")
+    public CommonResult getRelationshipByName(@RequestParam("name") String name) {
+        List<String> result = knowledgeUnitService.getRelationshipByName(name);
+        log.info("*****查看全部知识单元结果：" + result);
+
+        if (result != null) {
+            return new CommonResult(200, "获取关系成功,serverPort: " + serverPort, result);
+        } else {
+            return new CommonResult(444, "没有可获取的关系", null);
         }
     }
 }

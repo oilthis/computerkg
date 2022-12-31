@@ -14,5 +14,5 @@ public interface TextbookRepository extends Neo4jRepository<Textbook, Long> {
     Textbook findFirstByName(String name);
 
     @Query(value = "match p=(s:Textbook)-[]-() where s.name={0} return p")
-    List<PathValue> getRelationTextbookByName(String name);
+    List<PathValue> getRelationByName(String name);
 }

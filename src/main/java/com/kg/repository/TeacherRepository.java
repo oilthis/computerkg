@@ -15,5 +15,5 @@ public interface TeacherRepository extends Neo4jRepository<Teacher, Long> {
     Teacher findFirstByName(String name);
 
     @Query(value = "match p=(s:Teacher)-[]-() where s.name={0} return p")
-    List<PathValue> getRelationTeacherByName(String name);
+    List<PathValue> getRelationByName(String name);
 }

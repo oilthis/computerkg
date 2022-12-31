@@ -23,7 +23,7 @@ public class Course {
     @Property(name = "Course_hours")
     private String Course_hours;
     @Property(name = "Course_credit")
-    private Double Course_credit;
+    private String Course_credit;
 
     @Relationship(type = "contain", direction = Relationship.Direction.OUTGOING)
     private List<Course2KnowledgeUnit> Course2KnowledgeUnits;

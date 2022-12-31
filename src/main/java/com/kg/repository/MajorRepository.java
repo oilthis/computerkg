@@ -13,5 +13,5 @@ public interface MajorRepository extends Neo4jRepository<Major, Long> {
     Major findFirstByName(String name);
 
     @Query(value = "match p=(s:Major)-[]-() where s.name={0} return p")
-    List<PathValue> getRelationMajorByName(String name);
+    List<PathValue> getRelationByName(String name);
 }

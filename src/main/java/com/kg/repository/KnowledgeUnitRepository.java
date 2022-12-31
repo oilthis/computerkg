@@ -14,5 +14,5 @@ public interface KnowledgeUnitRepository extends Neo4jRepository<KnowledgeUnit, 
     KnowledgeUnit findFirstByName(String name);
 
     @Query(value = "match p=(s:KnowledgeUnit)-[]-() where s.name={0} return p")
-    List<PathValue> getRelationKnowledgeUnitByName(String name);
+    List<PathValue> getRelationShipByName(String name);
 }

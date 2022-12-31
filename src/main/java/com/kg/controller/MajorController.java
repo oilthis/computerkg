@@ -71,7 +71,7 @@ public class MajorController {
         }
     }
 
-    @DeleteMapping("/del")
+    @GetMapping("/del")
     public CommonResult deleteMajor(@RequestParam("name") String name) {
         int result = majorService.delMajor(name);
         log.info("*****删除结果：" + result);
@@ -80,6 +80,18 @@ public class MajorController {
             return new CommonResult(200, "删除专业成功,serverPort: " + serverPort, result);
         } else {
             return new CommonResult(444, "删除失败,专业不存在", null);
+        }
+    }
+
+    @GetMapping("/get_rel")
+    public CommonResult getRelationshipByName(@RequestParam("name") String name) {
+        List<String> result = majorService.getRelationshipByName(name);
+        log.info("*****查看全部知识单元结果：" + result);
+
+        if (result != null) {
+            return new CommonResult(200, "获取关系成功,serverPort: " + serverPort, result);
+        } else {
+            return new CommonResult(444, "没有可获取的关系", null);
         }
     }
 }
